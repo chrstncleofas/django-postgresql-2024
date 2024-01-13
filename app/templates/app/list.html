@@ -1,0 +1,115 @@
+{% extends "app/base.html" %}
+{% block body %}
+    <div class="main-body">
+        <h2>List of Reservation</h2>
+        <div class="history_lists">
+            <div class="list1">
+                <div class="row">
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Arrival</th>
+                            <th>Time</th>
+                            <th>Departure</th>
+                            <th>Time</th>
+                            <th>Info</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    {% if reservation %}
+                    <tbody>
+                        {% for item in reservation %}
+                        <tr>
+                            <td>{{ item.fname }}</td>
+                            <td>{{ item.lname }}</td>
+                            <td>{{ item.arrival_date }}</td>
+                            <td>{{ item.arrival_time }}</td>
+                            <td>{{ item.departure_date }}</td>
+                            <td>{{ item.departure_time }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" href="{% url 'list_item' item.id %}" data-bs-toggle="modal" data-bs-target="#myModal{{item.id}}">
+                                    <i class="fa-solid fa-circle-info fa-lg"></i>
+                                </button>
+                                 <!-- Modal -->
+                                 <div class="modal" id="myModal{{item.id}}" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title">Reservation : {{ item.fname }}</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true"></span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <ul class="list-unstyled">
+                                            <li>First Name : <strong>{{ item.fname }}</strong></li>
+                                            <li>Last Name : <strong>{{ item.lname }}</strong></li>
+                                            <li>Address : <strong>{{ item.address }}</strong></li>
+                                            <li>City : <strong>{{ item.city }}</strong></li>
+                                            <li>Province : <strong>{{ item.province }}</strong></li>
+                                            <li>Postal : <strong>{{ item.postal }}</strong></li>
+                                            <li>Email : <strong>{{ item.email }}</strong></li>
+                                            <li>Phone : <strong>{{ item.phone }}</strong></li>
+                                            <li>Arrival Date : <strong>{{ item.arrival_date }}</strong></li>
+                                            <li>Arrival Time : <strong>{{ item.arrival_time }}</strong></li>
+                                            <li>Departure Date : <strong>{{ item.departure_date }}</strong></li>
+                                            <li>Departure Time : <strong>{{ item.departure_time }}</strong></li>
+                                            <li>Number of Person : <strong>{{ item.number_person }}</strong></li>
+                                          </ul>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <button>
+                                    <a type="button" class="btn btn-success" href="{% url 'edit_list' item.id %}">
+                                        <i class="fa-solid fa-edit fa-lg"></i>
+                                    </a>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete{{item.id}}">
+                                    <i class="fa-solid fa-trash fa-lg"></i>
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal" id="delete{{item.id}}" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title">Reservation : {{ item.fname }}</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true"></span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Are you sure do want to delete this record?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="{% url 'delete_list' item.id %}" method="POST">
+                                                {% csrf_token %}
+                                                <input type="submit" class="btn btn-primary" value="Delete">
+                                            </form>
+                                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock body %}

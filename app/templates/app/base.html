@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Book Reservation</title>
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="main-body">
+        <div class="row">
+            <button>
+                <a class="btn btn-success" href="{% url 'add' %}">
+                    <i class="fa-solid fa-add fa-lg"></i>
+                    Book Now
+                </a>
+            </button>
+            <button>
+                <a class="btn btn-info" href="{% url 'list' %}">
+                    <i class="fa-solid fa-book fa-lg"></i>
+                    View List
+                </a>
+            </button>
+        </div>
+        <div class="main-body">
+            <h1 class="display-4">Book Reservation in Python Django</h1>
+            <p style="font-weight: bold;">Simple CRUD Application by Python Django Framework</p>
+            <p>A CRUD (Create, Read, Update, Delete) application in Python using Django typically involves building a web
+                application that allows users to perform these four basic operations on a set of data. Django is a high-level web
+                framework that simplifies the process of building web applications in Python. Here's a brief description of each CRUD
+                operation in the context of a Django application:
+            </p>
+        </div>
+    </div>
+    {% block body %}
+    {% endblock body %}
+    <div class="row">
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

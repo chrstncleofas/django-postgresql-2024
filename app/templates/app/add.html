@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+    <link rel="stylesheet" id="roboto-subset.css-css"
+        href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5"
+        type="text/css" media="all">
+    <link rel="canonical" href="https://mdbootstrap.com/docs/standard/extended/registration/">
+    <style>
+        INPUT:-webkit-autofill,
+        SELECT:-webkit-autofill,
+        TEXTAREA:-webkit-autofill {
+            animation-name: onautofillstart
+        }
+
+        INPUT:not(:-webkit-autofill),
+        SELECT:not(:-webkit-autofill),
+        TEXTAREA:not(:-webkit-autofill) {
+            animation-name: onautofillcancel
+        }
+
+        @keyframes onautofillstart {}
+
+        @keyframes onautofillcancel {}
+    </style>
+    <script type="text/javascript" async=""
+        src="https://www.googletagmanager.com/gtag/js?id=G-E9PS2EVWYS&amp;l=dataLayer&amp;cx=c">
+        </script>
+    <title>Add Page</title>
+</head>
+
+<body>
+    {% if success %}
+        <script>
+            window.onload = function() {
+                alert("The registration successfully. Go to Home Page.");
+                window.location.href = "{% url 'home' %}";
+            };
+        </script>
+    {% else %}
+        <div class="bg-white rounded-5 container mt-4">
+            <section class="w-100 px-4 py-5 gradient-custom" style="border-radius: .5rem .5rem 0 0;">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-9 col-xl-9">
+                        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                            <div class="card-body p-4 p-md-5">
+                                <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Reservation Form</h3>
+                                <!-- Form Action -->
+                                <form action="{% url 'add' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <label class="form-label" for="fname" style="margin-left: 0px">First
+                                                Name</label>
+                                            <!-- First Name -->
+                                            <div class="form-outline">
+                                                <input type="text" id="fname" name="fname"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 70.4px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <!-- Last Name -->
+                                            <label class="form-label" for="lname" style="margin-left: 0px">Last Name</label>
+                                            <div class="form-outline">
+                                                <input type="text" id="lname" name="lname"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 69.6px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-4">
+                                            <!-- Address -->
+                                            <label class="form-label" for="address" style="margin-left: 0px">Address</label>
+                                            <div class="form-outline">
+                                                <input type="text" id="address" name="address"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 69.6px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <!-- City -->
+                                            <label class="form-label" for="city" style="margin-left: 0px">City</label>
+                                            <div class="form-outline">
+                                                <input type="text" id="city" name="city"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 70.4px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <!-- Province -->
+                                            <label class="form-label" for="province"
+                                                style="margin-left: 0px">Province</label>
+                                            <div class="form-outline">
+                                                <input type="text" id="province" name="province"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 69.6px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <!-- Zipcode -->
+                                            <label class="form-label" for="postal" style="margin-left: 0px">Postal / Zip
+                                                code</label>
+                                            <div class="form-outline">
+                                                <input type="text" id="postal" name="postal"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 69.6px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4 pb-2">
+                                            <!-- Email -->
+                                            <label class="form-label" for="email" style="margin-left: 0px">Email</label>
+                                            <div class="form-outline">
+                                                <input type="email" id="email" name="email"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 40px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4 pb-2">
+                                            <!-- Phone -->
+                                            <label class="form-label" for="phoner" style="margin-left: 0px">Phone
+                                                Number</label>
+                                            <div class="form-outline">
+                                                <input type="tel" id="phone" name="phone"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 92.8px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4 pb-2">
+                                            <!-- Arrival -->
+                                            <label for="">Arrival Date</label>
+                                            <div class="form-outline">
+                                                <input type="date" id="arrival_date" name="arrival_date"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 40px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4 pb-2">
+                                            <!-- Time -->
+                                            <label for="">Time</label>
+                                            <div class="form-outline">
+                                                <input type="time" id="arrival_time" name="arrival_time"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 92.8px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4 pb-2">
+                                            <!-- Departure -->
+                                            <label for="">Departure Date</label>
+                                            <div class="form-outline">
+                                                <input type="date" id="departure_date" name="departure_date"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 40px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4 pb-2">
+                                            <!-- Time -->
+                                            <label for="">Time</label>
+                                            <div class="form-outline">
+                                                <input type="time" id="departure_time" name="departure_time"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 92.8px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4 pb-2">
+                                            <!-- Number of Person -->
+                                            <label class="form-label" for="number_person" style="margin-left: 0px">Number of
+                                                Person</label>
+                                            <div class="form-outline">
+                                                <input type="text" id="number_person" name="number_person"
+                                                    class="form-control form-control-lg" />
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 40px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 mb-4 pb-2">
+                                            <!-- Number of Person -->
+                                            <label class="form-label" for="message" style="margin-left: 0px">Message</label>
+                                            <div class="form-outline">
+                                                <textarea name="message" id="message" rows="5"
+                                                    class="form-control form-control-lg"></textarea>
+                                                <div class="form-notch">
+                                                    <div class="form-notch-leading" style="width: 9px"></div>
+                                                    <div class="form-notch-middle" style="width: 40px"></div>
+                                                    <div class="form-notch-trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 pt-2">
+                                        <input class="btn btn-info btn-lg" type="submit" value="Submit"
+                                            style="background-color: rgb(38, 10, 129) !important;">
+                                    </div>
+                                </form> <!-- End Form Action -->
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        </div>
+    {% endif %}
+    <footer class="mt-4 mb-4">
+        <div class="text-center">
+            <span>Copyright &copy;
+                <script>
+                    document.write(new Date().getFullYear());
+                </script>
+                CRUD Operation Application.
+            </span>
+        </div>
+    </footer>
+</body>
+</html>

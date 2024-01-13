@@ -1,0 +1,95 @@
+{% extends "app/base.html" %}
+{% block body %}
+    {% if success %}
+        <script>
+            window.onload = function() {
+                alert("The record updated successfully. Go to Home Page.");
+                window.location.href = "{% url 'home' %}";
+            };
+        </script>
+    {% else %}
+        <div class="form-container">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-pen-to-square fa-lg"></i> Update List Records
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            {{ form.non_field_errors }}
+                            <div class="form-row">
+                                <div class="form-group">
+                                    {{ form.fname.label_tag }}
+                                    {{ form.fname }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.lname.label_tag }}
+                                    {{ form.lname }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.address.label_tag }}
+                                    {{ form.address }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.city.label_tag }}
+                                    {{ form.city }}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    {{ form.province.label_tag }}
+                                    {{ form.province }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.postal.label_tag }}
+                                    {{ form.postal }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.email.label_tag }}
+                                    {{ form.email }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.phone.label_tag }}
+                                    {{ form.phone }}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    {{ form.arrival_date.label_tag }}
+                                    {{ form.arrival_date }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.arrival_time.label_tag }}
+                                    {{ form.arrival_time }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.departure_date.label_tag }}
+                                    {{ form.departure_date }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.departure_time.label_tag }}
+                                    {{ form.departure_time }}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    {{ form.number_person.label_tag }}
+                                    {{ form.number_person }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.message.label_tag }}
+                                    {{ form.message }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                                <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock body %}
