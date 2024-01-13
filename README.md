@@ -1,6 +1,6 @@
 # Project Title: Django CRUD Application with PostgreSQL and Poetry
 
-# Author : Christian Q. Cleofas - Junior Backend Developer (Python)
+Author : Christian Q. Cleofas - Junior Backend Developer (Python)
 
 # Overview:
 
