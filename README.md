@@ -1,8 +1,8 @@
-Project Title: Django CRUD Application with PostgreSQL and Poetry
+# Project Title: Django CRUD Application with PostgreSQL and Poetry
 
-Author : Christian Q. Cleofas - Junior Backend Developer (Python)
+# Author : Christian Q. Cleofas - Junior Backend Developer (Python)
 
-Overview:
+# Overview:
 
 This project is a simple CRUD (Create, Read, Update, Delete) application built using the Django web framework. It utilizes PostgreSQL as the database for data storage and Poetry for package management.
 
