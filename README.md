@@ -23,7 +23,7 @@ Setup Instructions:
 
 1. Clone the repository:
 
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/your-username/your-repo.git](https://github.com/chrstncleofas/django-postgresql-2024.git)
 
 2. Install project dependencies using Poetry:
 
